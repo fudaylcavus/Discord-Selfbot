@@ -1,0 +1,18 @@
+{
+  "name": "exdet-selfbot",
+  "version": "1.0.0",
+  "description": "Discord Self Bot to some smart features",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Fudayl \"ExDet\" Cavus",
+  "license": "ISC",
+  "dependencies": {
+    "discord.js": "^11.4.2",
+    "firebase-admin": "^6.2.0",
+    "fs": "0.0.1-security",
+    "translate": "^1.0.4",
+    "ytdl-core": "^0.28.0"
+  }
+}

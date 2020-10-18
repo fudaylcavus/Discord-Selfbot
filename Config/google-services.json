@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "319130222147",
+    "firebase_url": "https://discordselfnotification.firebaseio.com",
+    "project_id": "discordselfnotification",
+    "storage_bucket": "discordselfnotification.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:319130222147:android:c9b9d6333ac79094",
+        "android_client_info": {
+          "package_name": "com.phonegap.www"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "319130222147-utmtbgehpfgf1jh5d80063tmuaekqv93.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDPaAeKzW3YgIdw7jKJCejP0RrnjKRYA1A"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
