@@ -46,7 +46,7 @@
     ]
 
     //Rock Paper Scissors
-    var rps = ["Taş","Kağıt","Makas"]
+    var rps = ["Rock","Paper","Scissors"]
     function rps() {
         return rps[Math.floor(Math.random()*rps.length)]
     }
@@ -60,7 +60,7 @@
     var minutes = d.getMinutes()
     hours = ( hours < 10 ? "0" : "" ) + hours
     minutes = ( minutes < 10 ? "0" : "" ) + minutes
-    var login = `${client.user.tag} olarak giriş yapıldı!! (${hours}:${minutes})`
+    var login = `| Signed in as ${client.user.tag} (${hours}:${minutes}) |`
     let line = " "
     let column = ""
     
@@ -81,7 +81,7 @@
             console.log(line)
             console.log(column)
             console.log(column)
-            console.log(`| ${client.user.tag} olarak giriş yapıldı!! (${hours}:${minutes}) |`);
+            console.log(`| Signed in as ${client.user.tag} (${hours}:${minutes}) |`);
             console.log(column)
             console.log(column)
             console.log(line)
@@ -89,9 +89,9 @@
     console.log("Copyright Fudayl Cavus")
     console.log("______________________")
 
-    setInterval(spamf, 3000)
+    setInterval(spamf, 3000) //cleans spambox every 3s
     cOnline()
-    setInterval(cOnline,600000)
+    setInterval(cOnline,600000) // checks your friends availability
 
     })
 
@@ -229,7 +229,7 @@
         }
         
         else {
-            msg.channel.send(`Renk 0-1677215 aralığında olmalı`)
+            msg.channel.send(`Color code must between 0-1677215`)
        
             return;
         }
@@ -279,7 +279,7 @@
     }
 
     if(cmd == `ping`)
-        {msg.channel.send("Pong! Dev")
+        {msg.channel.send("Pong!")
         return
     }
 
@@ -287,7 +287,7 @@
     if (cmd == "takimcagir") {
         if (!args[1]) {
         msg.delete()
-        msg.channel.send("<@272443689190555648>, <@272444618711236612>, <@272445106538414091>, <@273134405143363584> Bekleniyorsunuz.... ")
+        msg.channel.send("<@272443689190555648>, <@272444618711236612>, <@272445106538414091>, <@273134405143363584> You are waiting.... ")
         return
     }
     if (args[1]) {
