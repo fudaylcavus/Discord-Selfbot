@@ -109,8 +109,8 @@
     }
 
 
-//Set Dnd on spam
-    if(spams.length >= 5) 
+//Set Dnd on spam under maintence
+    if(spams.length >= 100) 
     {msg.reply(':robot:    Spam Yapma!!!')
     if(client.user.presence.status != "dnd") {
     msg.channel.send("``"+spams.length+"``"+" mesaj 3 saniyeden kısa sürede gönderildi rahatsız etmeyine alındı.");
@@ -120,7 +120,6 @@
 
    
 //Replies
-    console.log(`${msg}`)
     console.log("===============")
     console.log(msg.guild)
     if(cmd == 'ping') {msg.reply(':robot:  Pong!')}
@@ -133,9 +132,8 @@
     if(cmd == 'sa') {msg.reply(":robot:  Aleykümselam");}
     if(cmd =="sich bewegen") {msg.reply(":robot:  Hareket Etmek")}
     if(cmd.includes('fudayl')) {
-        // if (msg.channel.type == 'dm') {
-        //     msg.channel.send("Üzgünüm henüz DM kanallarından komut çalıştıramıyorum bazı eksiklikler var.")
-        // }+
+
+    
         var mchannel = msg
         var notifychannel = client.channels.get("516254514039488561")
         if (args[1]) {
@@ -153,28 +151,7 @@
         setTimeout(function(){msg.channel.send("``` Gonderildi. ```")},3000); 
     }    
 
-    if (cmd.includes("f-online-")) {
-        if (msg.member.voiceChannel) {
-            let VC = msg.member.voiceChannel
-            VC.join()
-                .then(connection => { // Connection is an instance of VoiceConnection
-                if (msg.member.id == "396736394837622784") {
-                    const dispatcher = connection.playFile('D:/Works/ExDet-Selfbot/sounds/umitfirst.wma');
-                    dispatcher.on("end",()=> VC.leave())
-                };
-                if (msg.member.id == credentials.ExDetID) {
-                    const dispatcher = connection.playFile('D:/Works/ExDet-Selfbot/sounds/dev.wma');
-                    dispatcher.on("end",()=> VC.leave())
-                } else {
-                    const dispatcher = connection.playFile('D:/Works/ExDet-Selfbot/sounds/main.wma');
-                    dispatcher.on("end",()=> VC.leave())
-                }
-                dispatcher.on("end",()=> VC.leave())
-                .catch(error => {console.log("Hata bulundu")})
-                })
-                .catch(console.log);   
-                }
-    }
+    
 
     if (cmd=="b1mk") {
         msg.channel.send("B1 Mk Seslendiriliyor...");
@@ -404,41 +381,68 @@
             .then(messages => {msg.channel.send(`** \`${messages.size}/${args[1]}\` mesaj başarıyla silindi** `)}).then(msg => msg.delete({timeout: 10000}))
             .catch(error => {
                     if(error == "DiscordAPIError: Only bots can use this endpoint") {
-                        msg.channel.send("Sadece Botlar toplu mesaj silebilir..") 
+                        msg.channel.send("Sasiledece Botlar toplu mesaj bilir..") 
                         return} 
                 msg.channel.send(`Error: ${error}`)}
             )
         
     }
 
+//change and add sound track for specialized welcome message
+    if (cmd.includes("f-online-")) {
+        if (msg.member.voiceChannel) {
+            let VC = msg.member.voiceChannel
+            VC.join()
+                .then(connection => { // Connection is an instance of VoiceConnection
+                if (msg.member.id == "396736394837622784") {
+                    const dispatcher = connection.playFile('D:/Works/ExDet-Selfbot/sounds/umitfirst.wma');
+                    dispatcher.on("end",()=> VC.leave())
+                };
+                if (msg.member.id == credentials.ExDetID) {
+                    const dispatcher = connection.playFile('D:/Works/ExDet-Selfbot/sounds/dev.wma');
+                    dispatcher.on("end",()=> VC.leave())
+                } else {
+                    const dispatcher = connection.playFile('D:/Works/ExDet-Selfbot/sounds/main.wma');
+                    dispatcher.on("end",()=> VC.leave())
+                }
+                dispatcher.on("end",()=> VC.leave())
+                .catch(error => {console.log("Hata bulundu")})
+                })
+                .catch(console.log);   
+                }
+    }
 
 
-    if(cmd == `tekraret`) {
+
+    if(cmd == `say`) {
         if(!args[1]){
-            msg.reply(`Yanlış kullanım!!, ${p}tekraret {söz}`)
+            msg.reply(`Wrong usage, ${p}say {something}`)
             return;
         }  
             msg.channel.send(`${args.join(" ").substring(args[0].length)}`).then(msg.delete(10))
     }
 
-    if (cmd == "takimcagir") {
+
+    //add your friends id 
+
+    if (cmd == "callteam") {
         if (!args[1]) {
         msg.delete()
-        msg.channel.send("<@272443689190555648>, <@272444618711236612>, <@272445106538414091>, <@273134405143363584> Bekleniyorsunuz.... ")
+        msg.channel.send("<@id>, <@id>, <@id>, <@id> You are expected.... ")
     }
     if (args[1]) {
         msg.delete()
-        msg.channel.send(`<@272443689190555648>, <@272444618711236612>, <@272445106538414091>, <@273134405143363584> ${args.join(" ").substring(cmd.length+1)}`)
+        msg.channel.send(`<@id>, <@id>, <@id>, <@id> ${args.join(" ").substring(cmd.length+1)}`)
     }
     }
 
-    /*
+    
     if(cmd == 'bilgi') {
         
-        var title = args[1]
+        var title = "Information"
         var embed = new RichEmbed()
         .setTitle(`${title}`)
-        .setAuthor()
+        .setAuthor("fudaylcavus")
         .setcolor()
         .setColor(`${color}`)
         .setDescription(`${descripton}`)
@@ -447,22 +451,6 @@
         .url()
     }
 
-
-    var user = {
-            id: "272419020257624064",
-            username: 'ExDet',
-            discriminator: '5338',
-            avatar: '2f57325b36e72388d7da1e6a70c4e9f6',
-            bot: false,
-            lastMessageID: null,
-            lastMessage: null,
-            };
-        console.log(msg)
-        msg = "45645646"
-        console.log(msg)
-
-
-   */
 
     
 
@@ -473,7 +461,7 @@
     //Last String of commands    
     })
 
-    //Check Online 307928389996773386
+    //Check Online 307928389996773386 give channel id then your friend id to track
     
     function cOnline() {
 
@@ -497,7 +485,7 @@
         var botsprefix = ["``","```","!","?","=","-","/"]
         if (msg.content.startsWith(op)) return;
         if(msg.author.id != client.user.id) return;
-        var mention = /<@[0-9]{6,}?>/g
+        var mention = /<@[0-9]{6,}?>/g 
         let message = msg.content;
         if (message=="sa") {
             msg.delete()
@@ -522,7 +510,7 @@
             //     return;
             // }
             client.destroy()
-            console.log("Bot hesabından çıkış yapıldı.")
+            console.log("Signet out from bot account.")
             client.login(credentials.selftoken)
         }
 
