@@ -23,8 +23,10 @@
 
 
 //Bot and commands Setup
+
     const Discord = require('discord.js');
     const client = new Discord.Client();
+    
     const credentials = require('./Config/credentials.json')
     const p = credentials.prefix
     const op = credentials.otherprefixes
@@ -130,31 +132,35 @@
     if(cmd == 'selamun aleykum') {msg.reply(":robot:  Aleykümselam")}
     if(cmd == 'selamunaleyküm' ) {msg.reply(":robot:  Aleykümselam")}
     if(cmd == 'sa') {msg.reply(":robot:  Aleykümselam");}
-    if(cmd =="sich bewegen") {msg.reply(":robot:  Hareket Etmek")}
-    if(cmd.includes('fudayl')) {
+
+    
+
+    //self call notification command for your friends
+
+    if(cmd.includes('')) {
 
     
         var mchannel = msg
-        var notifychannel = client.channels.get("516254514039488561")
+        var notifychannel = client.channels.get("notifychannelid")
         if (args[1]) {
-            msg.channel.send("Merhaba ``"+msg.author.username+"``,")
-            msg.channel.send("``Mesajını iletiyorum.``")
+            msg.channel.send("Hello, ``"+msg.author.username+"``,")
+            msg.channel.send("``Sending your message...``")
         } else {
             msg.channel.send("Merhaba ``"+msg.author.username+"``,")
-            msg.channel.send("``Dur Çağırayım``");    
+            msg.channel.send("``Wait, I'll call ``");    
         }
         
-        msg.channel.send("``` Özel Mesaj Gonderiliyor.. ```")
+        msg.channel.send("``` Message is sending... ```")
         .then(msg => msg.delete(2500));
         console.log(`${msg.author.username} sana "${msg.content}" dedi`)
-        notifychannel.send(`${msg.author} ruft Fudayl.`, {tts: true})
-        setTimeout(function(){msg.channel.send("``` Gonderildi. ```")},3000); 
+        notifychannel.send(`${msg.author} said Fudayl.`, {tts: true})
+        setTimeout(function(){msg.channel.send("``` Sent. ```")},3000); 
     }    
 
-    
+    //specific sound options 
 
     if (cmd=="b1mk") {
-        msg.channel.send("B1 Mk Seslendiriliyor...");
+        msg.channel.send("Sound is playing...");
         let VC = msg.member.voiceChannel;
         VC.join()
         .then(connection => { 
@@ -264,20 +270,20 @@
     if (cmd == "takimcagir") {
         if (!args[1]) {
         msg.delete()
-        msg.channel.send("<@272443689190555648>, <@272444618711236612>, <@272445106538414091>, <@273134405143363584> You are waiting.... ")
+        msg.channel.send("<@id>, <@id>, <@id>, <@id> You are waiting.... ")
         return
     }
     if (args[1]) {
         msg.delete()
-        msg.channel.send(`<@272443689190555648>, <@272444618711236612>, <@272445106538414091>, <@273134405143363584> ${args.join(" ").substring(cmd.length+1)}`)
+        msg.channel.send(`<@id>, <@id>, <@id>, <@id> ${args.join(" ").substring(cmd.length+1)}`)
     }
     return
     }
 
 
-    if (cmd == "sayac") {
+    if (cmd == "counter") {
         if (!args[1]) {
-            msg.channel.send(`Eksik kullanım!!, ** ${p}sayac sure cins(dakika, saat, saniye)** `).then(msg.delete(100)) 
+            msg.channel.send(`Missing Arguments!!, ** ${p}counter time type(seconds, minutes, hours)** `).then(msg.delete(100)) 
             return;
         }
         msgc = msg.channel
@@ -296,14 +302,14 @@
         }
 
         if (!args[2]) {
-            msg.channel.send(`Saniye, dakika veya saat oldugunu belirtmediniz!!! ** ${p}sayac sure cins(dakika, saat, saniye)** `).then(msg.delete(100))
+            msg.channel.send(`You did not write the type of counter!!! ** ${p}counter time type(dakika, saat, saniye)** `).then(msg.delete(100))
             return;
         }
         if(wtime) {
-            msg.channel.send(`Süre ${args[1]} ${args[2]} sonrası için ayarlandı!!`).then(msg.delete(100))
+            msg.channel.send(`Time is set for ${args[1]} ${args[2]} !!`).then(msg.delete(100))
         }
         setTimeout( () => { 
-            msgc.send(`<@${msgs}>, Süre Doldu!!!`)
+            msgc.send(`<@${msgs}>, Time is up!!!`)
         },wtime)
         return}
 
@@ -456,7 +462,7 @@
 
 
 
-
+    console.log(test)
 
     //Last String of commands    
     })
