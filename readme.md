@@ -26,5 +26,5 @@ I coded it to learn some basics and stuffs for js
 
 #### Info 
 
-All commands are made for my credentials. Therefore, this isn't ready to instant use. (Config/credentials.json)
-working on it...
+All commands are made for my credentials. Therefore, this isn't ready to instant use. (Config/credentials.json) ~working on it...~
+(I stopped working because using selfbot in Discord is not allowed anymore.)
